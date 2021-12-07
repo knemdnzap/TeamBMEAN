@@ -1,0 +1,38 @@
+<mat-toolbar class="bgHeader">
+  <ul>
+    <a *ngIf="_userService.loggedIn()" routerLink="saveTask">Create task</a>
+  </ul>
+
+  <ul>
+    <a *ngIf="_userService.loggedIn()" routerLink="listTask">List task</a>
+  </ul>
+
+  <ul>
+    <a *ngIf="_userService.loggedIn()" routerLink="listUser">Users</a>
+  </ul>
+
+  <ul>
+    <a *ngIf="_userService.loggedIn()" routerLink="listRole">Role</a>
+  </ul>
+
+  <ul>
+    <a *ngIf="_userService.loggedIn()" routerLink="registerRole"> Register Role</a>
+  </ul>
+
+  <span class="headerSpacer"></span>
+
+  <ul>
+    <!--Para saber si esta registrado o logueado sino me muestra el register o el login-->
+    <a mat-button routerLink="register"
+      >Sign up</a
+    >
+    <a *ngIf="!_userService.loggedIn()" mat-button routerLink="login">Login</a>
+    <!--Si estoy logueado aparece la opción si no es así pues no aparece la opción-->
+    <a
+      *ngIf="_userService.loggedIn()"
+      (click)="_userService.logout()"
+      mat-button
+      >Logout</a
+    >
+  </ul>
+</mat-toolbar>
