@@ -45,8 +45,6 @@ export class RegisterRoleComponent implements OnInit {
       //Primero le enviamos los datos al servicio para que lo envie al backend
       this._roleService.registerRole(this.registerData).subscribe({
         next: (v) => {
-          //Para guardar un objeto y que nos traiga el objeto que seria el token
-          localStorage.setItem('token', v.token);
           //Si todo sale bien y se registro en backend
           this._router.navigate(['/saveTask'])
           this.message = 'Successfull role registration'
